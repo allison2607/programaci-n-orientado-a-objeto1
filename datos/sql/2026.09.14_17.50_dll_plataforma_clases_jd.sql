@@ -103,63 +103,106 @@ CREATE TABLE instructor_cursos(
 ) COMMENT = 'ASOCIANDO LA TABLA INSTRUCTORES CON CURSOS';
 -- Un instructor puede tener muchos cursos
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-CREATE TABLE direcciones(
-    id_direcciones INT AUTO_INCREMENT,
-    direccion VARCHAR(100) NOT NULL,
+CREATE TABLE especialidades(
+    id_especialidad INT AUTO_INCREMENT,
+    especialidad VARCHAR(50) NOT NULL,
     habilitado BOOLEAN DEFAULT TRUE,
 
-    CONSTRAINT pk_direcciones PRIMARY KEY (id_direcciones)
+    CONSTRAINT pk_especialidad PRIMARY KEY (id_especialidad)
+) COMMENT = 'CREACION DE TABLA DE ESPECIALIDADES';
 
-) COMMENT = 'Tabla para las direcciones de Personas';
+CREATE TABLE instructores_especialidades(
+    id_ins_esp INT AUTO_INCREMENT,
+    instructor INT,
+    especialidad INT,
+    habilitado BOOLEAN DEFAULT TRUE,
 
-CREATE TABLE personas(
-    id_personas INT AUTO_INCREMENT,
+    CONSTRAINT pk_instructores_especialidad PRIMARY KEY (id_ins_esp),
+    CONSTRAINT fk_instructor_esp FOREIGN KEY (instructor) REFERENCES instructores(id_instructor),
+    CONSTRAINT fk_especialidad FOREIGN KEY (especialidad) REFERENCES especialidades(id_especialidad)
+) COMMENT = 'ASOCIANDO LA TABLA INSTRUCTORES CON ESPECIALIDADES'; 
+-- OJO A QUE LA FK DE INSTRUCTOR TIENE '_esp' AL FINAL
+
+CREATE TABLE inscripciones(
+    id_inscripcion INT AUTO_INCREMENT,
+    estudiante INT,
+    curso INT,
+    fecha_inscripcion DATE NOT NULL,
+    avance FLOAT NOT NULL,
+    nota_final FLOAT,
+    habilitado BOOLEAN DEFAULT TRUE,
+
+    CONSTRAINT pk_inscripcion PRIMARY KEY (id_inscripcion),
+    CONSTRAINT fk_estudiante_inscripcion FOREIGN KEY (estudiante) REFERENCES estudiantes(id_estudiante),
+    CONSTRAINT fk_estudiante_curso FOREIGN KEY (curso) REFERENCES cursos(id_cursos)
+) COMMENT 'ASOCIANDO AL ESTUDIANTE CON CURSOS';
+
+CREATE TABLE modulos(
+    id_modulos INT AUTO_INCREMENT,
+    curso INT,
+    nombre_modulo VARCHAR(50) NOT NULL,
+    habilitado BOOLEAN DEFAULT TRUE,
+
+    CONSTRAINT pk_modulo PRIMARY KEY (id_modulos),
+    CONSTRAINT fk_curso_modulo FOREIGN KEY (curso) REFERENCES cursos(id_cursos)
+) COMMENT 'CREACION DE TABLA MODULOS CONECTADO CON CURSO';
+
+CREATE TABLE contenidos(
+    id_contenidos INT AUTO_INCREMENT,
+    modulo INT,
+    descripcion VARCHAR(50) NOT NULL,
+    habilitado BOOLEAN DEFAULT TRUE,
+
+    CONSTRAINT pk_contenido PRIMARY KEY (id_contenidos),
+    CONSTRAINT fk_modulo_contenidos FOREIGN KEY (modulo) REFERENCES modulos(id_modulos)
+) COMMENT = 'CREACION DE TABLA CONTENIDOS CONECTADO CON MODULOS';
+
+CREATE TABLE actividades(
+    id_actividades INT AUTO_INCREMENT,
+    contenido INT,
     nombre VARCHAR(50) NOT NULL,
-    apellido VARCHAR(50) NOT NULL,
-    rut VARCHAR(50) NOT NULL UNIQUE,
-    direccion VARCHAR(50) NOT NULL,
-    correo VARCHAR(50) NOT NULL UNIQUE,
-    celular VARCHAR(50) NOT NULL,
-    fecha_nacimiento DATE NOT NULL,
+    descripcion VARCHAR(50) NOT NULL,
+    evaluacion BOOLEAN NOT NULL,
+    habilitado BOOLEAN DEFAULT TRUE,
 
-    CONSTRAINT pk_personas PRIMARY KEY (id_personas)
-    CONSTRAINT fk_personas_direcciones FOREIGN KEY (direccion) REFERENCES direcciones(id_direcciones)
+    CONSTRAINT pk_actividad PRIMARY KEY (id_actividades),
+    CONSTRAINT fk_contenido_actividad FOREIGN KEY (contenido) REFERENCES contenidos(id_contenidos)
+) COMMENT = 'CREACION DE TABLA ACTIVIDADES CONECTADO CON CONTENIDOS';
 
-) COMMENT = 'Tabla para informacion de las Personas'
+CREATE TABLE notas_actividades(
+    id_notas_act INT AUTO_INCREMENT,
+    actividad INT,
+    estudiante INT,
+    nota_actividad FLOAT,
+    habilitado BOOLEAN DEFAULT TRUE,
 
--- HAY QUE ARREGLAMR MUCHO PIDO DISCULPAS
+    CONSTRAINT pk_nota_act PRIMARY KEY (id_notas_act),
+    CONSTRAINT fk_actividad_nota FOREIGN KEY (actividad) REFERENCES actividades(id_actividades),
+    CONSTRAINT fk_estudiante_nota FOREIGN KEY (estudiante) REFERENCES estudiantes(id_estudiante) 
+) COMMENT = 'CREACION DE TABLA DE NOTAS QUE CONECTA AL ESTUDIANTE CON LA ACTVIDIDAD';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
