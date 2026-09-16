@@ -179,7 +179,9 @@ CREATE TABLE notas_actividades(
     CONSTRAINT pk_nota_act PRIMARY KEY (id_notas_act),
     CONSTRAINT fk_actividad_nota FOREIGN KEY (actividad) REFERENCES actividades(id_actividades),
     CONSTRAINT fk_estudiante_nota FOREIGN KEY (estudiante) REFERENCES estudiantes(id_estudiante) 
-) COMMENT = 'CREACION DE TABLA DE NOTAS QUE CONECTA AL ESTUDIANTE CON LA ACTVIDIDAD';
+) COMMENT = 'CREACION DE TABLA DE NOTAS QUE CONECTA AL ESTUDIANTE CON LA ACTIVIDIDAD';
+
+
 
 
 
