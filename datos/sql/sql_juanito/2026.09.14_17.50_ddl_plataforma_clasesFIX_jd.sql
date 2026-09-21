@@ -42,7 +42,7 @@ CREATE TABLE personas(
     id_persona INT AUTO_INCREMENT,
     nombre VARCHAR(50) NOT NULL,
     apellido VARCHAR(50) NOT NULL,
-    rut VARCHAR(11) NOT NULL UNIQUE,
+    rut VARCHAR(50) NOT NULL UNIQUE,
     correo VARCHAR(255) NOT NULL UNIQUE,
     celular VARCHAR(50) NOT NULL UNIQUE,
     fecha_nacimiento DATE NOT NULL,
