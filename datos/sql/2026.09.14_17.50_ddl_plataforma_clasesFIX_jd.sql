@@ -16,6 +16,7 @@ CREATE TABLE paises(
 
     CONSTRAINT pk_pais PRIMARY KEY (id_pais)
 ) COMMENT = 'CREACION TABLA PARA INGRESAR PAISES';
+
 CREATE TABLE comunas(
     id_comuna INT AUTO_INCREMENT,
     comuna VARCHAR(50) NOT NULL,
@@ -42,7 +43,7 @@ CREATE TABLE personas(
     nombre VARCHAR(50) NOT NULL,
     apellido VARCHAR(50) NOT NULL,
     rut VARCHAR(11) NOT NULL UNIQUE,
-    correo VARCHAR(50) NOT NULL UNIQUE,
+    correo VARCHAR(255) NOT NULL UNIQUE,
     celular VARCHAR(50) NOT NULL UNIQUE,
     fecha_nacimiento DATE NOT NULL,
     direccion INT,

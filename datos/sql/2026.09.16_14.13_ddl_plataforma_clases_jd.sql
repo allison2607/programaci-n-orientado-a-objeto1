@@ -37,3 +37,7 @@ ALTER TABLE cursos
     DROP COLUMN cant_evaluacion;
 -- Eliminar el atributo cantidad de evaluaciones, ya que los datos calculables no deben ser atributos 
 -- Prueba
+
+ALTER TABLE personas
+    MODIFY rut VARCHAR(50) NOT NULL UNIQUE;
+-- Agregarle mas caracteres al rut
