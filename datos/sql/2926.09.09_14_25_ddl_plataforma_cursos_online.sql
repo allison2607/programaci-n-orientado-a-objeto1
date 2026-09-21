@@ -1,6 +1,6 @@
 CREATE DATABASE IF NOT EXISTS plataforma_clases;
 USE plataforma_clases;
-
+-- no correr
 CREATE TABLE IF NOT EXISTS paises (
     id_pais INT(11) AUTO_INCREMENT PRIMARY KEY,
     pais VARCHAR(50) NOT NULL,
