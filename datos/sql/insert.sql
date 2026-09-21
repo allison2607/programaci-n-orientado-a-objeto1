@@ -1,3 +1,4 @@
+USE plataforma_clases; 
 INSERT INTO paises (pais) VALUES
 ('Chile'),
 ('Argentina'),
