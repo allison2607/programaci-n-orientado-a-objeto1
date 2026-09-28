@@ -1,8 +1,6 @@
 -- Active: 1786741319663@@127.0.0.1@3306@mysql
 
 -- Base de Datos de Plataforma de Clases por Juan de Dios
-
-
 CREATE DATABASE plataforma_clases;
 -- Creacion de Base de Datos
 
