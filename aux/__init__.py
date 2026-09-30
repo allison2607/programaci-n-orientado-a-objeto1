@@ -1,1 +1,0 @@
-from aux.datos_app_jd import nombre_app, version_app
