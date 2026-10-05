@@ -13,18 +13,6 @@ class BaseModel(Model):
     class Meta:
         database = database
 
-class Cursos(BaseModel):
-    asistencia_min = FloatField()
-    descripcion = CharField(max_length=50)
-    duracion_dias = IntegerField()
-    habilitado = BooleanField(constraints=[SQL(default)], null=True)
-    id_cursos = AutoField()
-    nota_min = FloatField()
-    titulo_curso = CharField(max_length=50)
-
-    class Meta:
-        table_name = 'cursos'
-
 class Modulos(BaseModel):
     curso = ForeignKeyField(column_name='curso', field='id_cursos', model=Cursos, null=True)
     habilitado = BooleanField(constraints=[SQL(default)], null=True)

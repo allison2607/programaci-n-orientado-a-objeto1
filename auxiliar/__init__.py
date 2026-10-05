@@ -1,1 +1,1 @@
-from auxiliar.datos_app_jd.py import nombre_app, version_app
+from auxiliar.datos_app_jd import nombre_app, version_app, default
