@@ -1,0 +1,13 @@
+PRINCIPIOS SOLID
+
+Singular Responsability = Un archivo por clase
+
+
+
+
+
+
+
+
+* Clase = Entidad
+* Objeto = Registro
