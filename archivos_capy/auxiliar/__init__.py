@@ -1,0 +1,1 @@
+from archivos_capy.auxiliar.datos_app_capy import nombre_app, version_app, default
