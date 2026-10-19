@@ -14,17 +14,3 @@ def guardar_curso(curso:Curso):
     except Exception as error:
         print(f"Ha ocurrido un Error!: {error}")
 
-def editar_curso(curso:Curso):
-    try:
-        curso_editado = curso.save()
-        return curso_editado
-    except Exception as error:
-        print(f"Ha ocurrido un error!: {error}")
-
-def deshabilitar_curso(curso:Curso):
-    try:
-        curso.habilitado = 0
-        curso.save()
-        return curso
-    except Exception as error:
-        print(f"Ha ocurrido un error!: {error}")

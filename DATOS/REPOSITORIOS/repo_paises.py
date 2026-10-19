@@ -14,17 +14,3 @@ def guardar_pais(pais:Paises):
     except Exception as error:
         print(f"Ha ocurrido un error!: {error}")
 
-def editar_pais(pais:Paises):
-    try:
-        pais_editado = pais.save
-        return pais_editado
-    except Exception as error:
-        print(f"Ha ocurrido un error!: {error}")
-
-def deshabilitar_pais(pais:Paises):
-    try:
-        pais.habilitado = 0
-        pais.save
-        return pais
-    except Exception as error:
-        print(f"Ha ocurrido un error!: {error}")

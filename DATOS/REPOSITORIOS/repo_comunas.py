@@ -14,19 +14,6 @@ def guardar_comuna(comuna:Comunas):
     except Exception as error:
         print(f"Ha ocurrido un error!: {error}")
 
-def editar_comuna(comuna:Comunas):
-    try:
-        comuna_editada = comuna.save()
-        return comuna_editada
-    except Exception as error:
-        print(f"Ha ocurrido un error!: {error}")
 
-def deshabilitar_comuna(comuna:Comunas):
-    try:
-        comuna.habilitado = 0
-        comuna.save()
-        return comuna
-    except Exception as error:
-        print(f"Ha ocurrido un error!: {error}")
 
 

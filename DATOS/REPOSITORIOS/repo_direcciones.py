@@ -14,17 +14,3 @@ def guardar_direccion(direccion:Direcciones):
     except Exception as error:
         print(f"Ha ocurrido un error!: {error}")
 
-def editar_direecion(direccion:Direcciones):
-    try:
-        direccion_editada = direccion.ssave
-        return direccion_editada
-    except Exception as error:
-        print(f"Ha ocurrido un error!: {error}")
-
-def deshabilitar_direccion(direccion:Direcciones):
-    try:
-        direccion.habilitado = 0
-        direccion.save()
-        return direccion
-    except Exception as error:
-        print(f"Ha ocurrido un error!: {error}")
