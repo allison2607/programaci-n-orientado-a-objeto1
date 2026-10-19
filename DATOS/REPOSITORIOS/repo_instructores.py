@@ -7,6 +7,13 @@ def mostrar_instructores(instructor:Instructores):
     except Exception as error:
         print(f"Ha ocurrido un error!: {error}")
 
+def obtener_instructor_nombre(nombre_instructor):
+    try:
+        instructor = Instructores.get(Instructores.nombre == nombre_instructor)
+        return instructor
+    except Exception as error:
+        print(f"Ha ocurrido un error!: {error}")
+
 def guardar_instructor(instructor:Instructores):
     try:
         instructor_nuevo = instructor.save()

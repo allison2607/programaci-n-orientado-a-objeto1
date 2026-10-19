@@ -7,6 +7,13 @@ def mostrar_personas(persona:Personas):
     except Exception as error:
         print(f"Ha ocurrido un error!: {error}")
 
+def obtener_persona_nombre(nombre_persona):
+    try:
+        persona = Personas.get(Personas.nombre == nombre_persona)
+        return persona
+    except Exception as error:
+        print(f"Ha ocurrido un error!: {error}")
+
 def guardar_persona(persona:Personas):
     try:
         nueva_persona = persona.save()
