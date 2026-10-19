@@ -7,6 +7,13 @@ def mostrar_direcciones(direccion:Direcciones):
     except Exception as error:
         print(f"Ha ocurrido un error!: {error}")
 
+def obtener_direccion_calle_numero(calle_direccion, numero_direccion):
+    try:
+        direccion = Direcciones.get(Direcciones.calle == calle_direccion, Direcciones.numero == numero_direccion)
+        return direccion
+    except Exception as error:
+        print(f"Ha ocurrido un error!: {error}")
+
 def guardar_direccion(direccion:Direcciones):
     try:
         nueva_direccion = direccion.save
