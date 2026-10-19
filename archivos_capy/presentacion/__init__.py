@@ -1,1 +1,1 @@
-from archivos_capy.presentacion.menu import cargar_menu
+from presentacion.menu import cargar_menu

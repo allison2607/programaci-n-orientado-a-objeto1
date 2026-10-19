@@ -1,23 +1,22 @@
+from presentacion import cargar_menu
 
-from archivos_capy.presentacion import cargar_menu
-from archivos_capy.datos.repositorios.repo_curso import (
-    listado_cursos,
-    guardar_curso,
-)
-from archivos_capy.modelos.curso import Curso
+#cargar_menu()
 
+from datos.repositorios.repo_curso import listado_cursos, guardar_curso
+from prettytable import prettytable
+from datos.modelos.curso import Curso
 
-cargar_menu()
-
-for curso in listado_cursos():
-    print(curso.id_cursos, curso.titulo_curso)
-
+tabla_cursos = PrettyTable()
 
 nuevo_curso = Curso()
-nuevo_curso.asistencia_min = 50
-nuevo_curso.descripcion = "Aprender POO"
-nuevo_curso.titulo_curso = "Programacion Orientada a Objetos"
-nuevo_curso.duracion_dias = 90
+nuevo_curso.titulo_curso = 'Python básico'
+nuevo_curso.descripcion = 'Introducción a Python'
+nuevo_curso.duracion_dias = 30
+nuevo_curso.asistencia_min = 75
 nuevo_curso.nota_min = 4.0
 
 guardar_curso(nuevo_curso)
+
+cursos = listado_cursos()
+for curso in cursos:
+    print(f'{curso.id_cursos} - {curso.titulo_curso} - {curso.descripcion} - {curso.duracion_dias} - {curso.asistencia_min} - {curso.nota_min} - {curso.habilitado}')

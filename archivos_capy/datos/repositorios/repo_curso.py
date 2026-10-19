@@ -1,11 +1,10 @@
-from datos.modelos import curso
 from datos.modelos.curso import Curso
 
 def listado_cursos():
-    Cursos = curso.select()
+    Cursos = Curso.select()
     if Cursos:
         return Cursos
 
-def guardar_Curso(curso:curso):
+def guardar_curso(curso:Curso):
     curso.save()
 
