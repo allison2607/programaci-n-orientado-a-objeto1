@@ -1,34 +1,11 @@
-
-from archivos_capy.modelos.curso import Curso
-
+from datos.modelos import curso
+from datos.modelos.curso import Curso
 
 def listado_cursos():
-    return list(Curso.select())
+    Cursos = curso.select()
+    if Cursos:
+        return Cursos
 
-
-def obtener_curso(id_curso):
-    return Curso.get_or_none(
-        Curso.id_cursos == id_curso
-    )
-
-
-def guardar_curso(curso: Curso):
+def guardar_Curso(curso:curso):
     curso.save()
-    return curso
-
-
-def actualizar_curso(id_curso, **datos):
-    return (
-        Curso.update(**datos)
-        .where(Curso.id_cursos == id_curso)
-        .execute()
-    )
-
-
-def eliminar_curso(id_curso):
-    return (
-        Curso.delete()
-        .where(Curso.id_cursos == id_curso)
-        .execute()
-    )
 
