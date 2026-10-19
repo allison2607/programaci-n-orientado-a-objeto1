@@ -1,1 +1,0 @@
-from auxiliar.datos_app_jd import nombre_app, version_app, default
