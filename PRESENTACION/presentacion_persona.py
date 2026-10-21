@@ -1,8 +1,8 @@
 from prettytable import PrettyTable
-from DATOS.MODELOS.personas import Personas
-from DATOS.MODELOS.direcciones import Direcciones
-from DATOS.MODELOS.comunas import Comunas
-from DATOS.MODELOS.paises import Paises
+from DATOS.MODELOS.persona import Persona
+from DATOS.MODELOS.direccion import Direccion
+from DATOS.MODELOS.comuna import Comuna
+from DATOS.MODELOS.pais import Pais
 from NEGOCIO.negocio_persona import (crear_persona,
                                      editar_persona,
                                      lista_personas,
@@ -26,16 +26,17 @@ def menu_crear_persona():
                   ).strip()
     comuna = input("Ingresa la Comuna de la Persona\n"
                    ).strip()
+    
     numero = int(input("Ingresa el numero de la calle\n"
                    ))
     pais = input("Ingresa el pais de la persona\n"
                  ).strip()
 
 
-    persona_crear = Personas()
-    direccion_crear = Direcciones()
-    comunas_crear = Comunas()
-    paises_crear = Paises()
+    persona_crear = Persona()
+    direccion_crear = Direccion()
+    comunas_crear = Comuna()
+    paises_crear = Pais()
 
 
     resultado = crear_persona(

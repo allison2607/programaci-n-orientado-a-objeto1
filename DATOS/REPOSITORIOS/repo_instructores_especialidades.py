@@ -1,7 +1,7 @@
-from DATOS.MODELOS.instructores_especialidades import InstructoresEspecialidades
+from DATOS.MODELOS.instructores_especialidad import InstructoresEspecialidad
 
 def mostrar_especialidades_instructores(
-        especialidadesinstructor:InstructoresEspecialidades):
+        especialidadesinstructor:InstructoresEspecialidad):
     try:
         especialidadesinstructores = especialidadesinstructor.select().where(
             especialidadesinstructor.habilitado == 1)
@@ -11,15 +11,15 @@ def mostrar_especialidades_instructores(
 
 def obtener_especialidades_instructores(instructor):
     try:
-        especialidades_instructor = InstructoresEspecialidades.get(
-            InstructoresEspecialidades.instructor == instructor
+        especialidades_instructor = InstructoresEspecialidad.get(
+            InstructoresEspecialidad.instructor == instructor
         )
         return especialidades_instructor
     except Exception as error:
         print(f"Ha ocurrido un error!: {error}")
 
 def guardar_especialidad_instructor(
-        especialidadesinstructor:InstructoresEspecialidades):
+        especialidadesinstructor:InstructoresEspecialidad):
     try:
         nueva_especialidad_instructor = especialidadesinstructor.save()
         return nueva_especialidad_instructor

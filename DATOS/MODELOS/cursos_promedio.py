@@ -1,14 +1,14 @@
 from peewee import Model, AutoField, FloatField, ForeignKeyField
 from DATOS.conexion import conectar
-from DATOS.MODELOS.cursos import Curso
-from DATOS.MODELOS.estudiantes import Estudiantes
+from DATOS.MODELOS.curso import Curso
+from DATOS.MODELOS.estudiante import Estudiante
 base_datos = conectar()
 
 class BaseModel(Model):
     class Meta:
         database= base_datos
 
-class CursosPromedios(BaseModel):
+class CursosPromedio(BaseModel):
     id_promedio = AutoField()
     promedio = FloatField(null=True)
     estudiante = ForeignKeyField(column_name='estudiante', field='id_estudiante', model=Curso, null=True)

@@ -1,6 +1,6 @@
-from DATOS.MODELOS.actividades import Actividades
+from DATOS.MODELOS.actividad import Actividad
 
-def mostrar_actividades(actividad:Actividades):
+def mostrar_actividades(actividad:Actividad):
     try:
         actividades = actividad.select().where(actividad.habilitado == 1)
         return actividades
@@ -9,12 +9,12 @@ def mostrar_actividades(actividad:Actividades):
 
 def obtener_actividad_nombre(nombre_actividad):
     try:
-        actividad = Actividades.get(Actividades.nombre == nombre_actividad)
+        actividad = Actividad.get(Actividad.nombre == nombre_actividad)
         return actividad
     except Exception as error:
         print(f"Ha ocurrido un error!: {error}")
 
-def guardar_actividad(actividad:Actividades):
+def guardar_actividad(actividad:Actividad):
     try:
         nueva_actividad = actividad.save()
         return nueva_actividad 

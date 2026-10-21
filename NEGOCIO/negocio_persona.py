@@ -10,16 +10,16 @@ from DATOS.REPOSITORIOS.repo_comunas import (mostrar_comunas,
 from DATOS.REPOSITORIOS.repo_paises import (mostrar_paises,
                                             obtener_pais_nombre,
                                             guardar_pais)
-from DATOS.MODELOS.personas import Personas
-from DATOS.MODELOS.direcciones import Direcciones
-from DATOS.MODELOS.comunas import Comunas
-from DATOS.MODELOS.paises import Paises
+from DATOS.MODELOS.persona import Persona
+from DATOS.MODELOS.direccion import Direccion
+from DATOS.MODELOS.comuna import Comuna
+from DATOS.MODELOS.pais import Pais
 
 
-def crear_persona(persona:Personas,
-                  direccion:Direcciones,
-                  comunas:Comunas,
-                  paises:Paises,
+def crear_persona(persona:Persona,
+                  direccion:Direccion,
+                  comunas:Comuna,
+                  paises:Pais,
                   nombre,
                   rut, 
                   apellido,

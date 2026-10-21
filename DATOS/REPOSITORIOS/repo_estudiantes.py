@@ -1,6 +1,6 @@
-from DATOS.MODELOS.estudiantes import Estudiantes
+from DATOS.MODELOS.estudiante import Estudiante
 
-def mostrar_estudiantes(estudiante:Estudiantes):
+def mostrar_estudiantes(estudiante:Estudiante):
     try:
         estudiantes = estudiante.select().where(estudiante.habilitado == 1)
         return estudiantes
@@ -9,12 +9,12 @@ def mostrar_estudiantes(estudiante:Estudiantes):
 
 def obtener_estudiante_nombre(nombre_estudiante):
     try:
-        estudiante = Estudiantes.get(Estudiantes.nombre == nombre_estudiante)
+        estudiante = Estudiante.get(Estudiante.nombre == nombre_estudiante)
         return estudiante
     except Exception as error:
         print(f"Ha ocurrido un error!: {error}")
         
-def guardar_estudiante(estudiante:Estudiantes):
+def guardar_estudiante(estudiante:Estudiante):
     try:
         nuevo_estudiante = estudiante.save()
         return nuevo_estudiante

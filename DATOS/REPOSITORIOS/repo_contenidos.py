@@ -1,6 +1,6 @@
-from DATOS.MODELOS.contenidos import Contenidos
+from DATOS.MODELOS.contenidos import Contenido
 
-def mostrar_contenidos(contenido:Contenidos):
+def mostrar_contenidos(contenido:Contenido):
     try:
         contenidos = contenido.select().where(contenido.habilitado == 1)
         return contenidos
@@ -9,12 +9,12 @@ def mostrar_contenidos(contenido:Contenidos):
 
 def obtener_contenido_modulo(modulo):
     try:
-        contenido_modulo = Contenidos.get(Contenidos.modulo == modulo)
+        contenido_modulo = Contenido.get(Contenido.modulo == modulo)
         return contenido_modulo
     except Exception as error:
         print(f"Ha ocurrido un error!: {error}")
 
-def guardar_contenido(contenido:Contenidos):
+def guardar_contenido(contenido:Contenido):
     try:
         contenido_nuevo = contenido.save()
         return contenido_nuevo

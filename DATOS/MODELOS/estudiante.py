@@ -1,6 +1,6 @@
 from peewee import Model, AutoField, CharField, ForeignKeyField, BooleanField, SQL
 from DATOS.conexion import conectar
-from DATOS.MODELOS.cursos import Curso
+from DATOS.MODELOS.persona import Persona
 from AUXILIAR.datos_app import default 
 
 base_datos = conectar()
@@ -9,11 +9,12 @@ class BaseModel(Model):
     class Meta:
         database = base_datos
 
-class Modulos(BaseModel):
-    id_modulos = AutoField()
-    nombre_modulo = CharField(max_length=50)
-    curso = ForeignKeyField(column_name='curso', field='id_cursos', model=Curso, null=True)
+class Estudiante(BaseModel):
+    id_estudiante = AutoField()
+    login_estudiante = CharField(max_length=50)
+    info_persona = ForeignKeyField(column_name='info_persona', field='id_persona', model=Persona, null=True)
     habilitado = BooleanField(constraints=[SQL(default)], null=True)
 
     class Meta:
-        table_name = 'modulos'
+        table_name = 'estudiantes'
+

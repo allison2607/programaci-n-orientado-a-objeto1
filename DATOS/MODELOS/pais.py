@@ -8,7 +8,7 @@ class BaseModel(Model):
     class Meta:
         database = base_datos
 
-class Paises(BaseModel):
+class Pais(BaseModel):
     id_pais = AutoField()
     pais = CharField(max_length=50)
     habilitado = BooleanField(constraints=[SQL(default)], null=True)

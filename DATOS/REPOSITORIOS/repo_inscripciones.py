@@ -1,6 +1,6 @@
-from DATOS.MODELOS.inscripciones import Inscripciones
+from DATOS.MODELOS.inscripcion import Inscripcion
 
-def mostrar_inscripciones(inscripcion:Inscripciones):
+def mostrar_inscripciones(inscripcion:Inscripcion):
     try:
         inscripciones = inscripcion.select().where(inscripcion.habilitado == 1)
         return inscripciones
@@ -9,12 +9,12 @@ def mostrar_inscripciones(inscripcion:Inscripciones):
 
 def obtener_inscripcion(estudiante):
     try:
-        inscripcion = Inscripciones.get(Inscripciones.estudiante == estudiante)
+        inscripcion = Inscripcion.get(Inscripcion.estudiante == estudiante)
         return inscripcion
     except Exception as error:
         print(f"Ha ocurrido un error!: {error}")
 
-def guardar_inscripcion(inscripcion:Inscripciones):
+def guardar_inscripcion(inscripcion:Inscripcion):
     try:
         nueva_inscripcion = inscripcion.save()
         return nueva_inscripcion

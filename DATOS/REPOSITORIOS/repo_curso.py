@@ -1,4 +1,4 @@
-from DATOS.MODELOS.cursos import Curso
+from DATOS.MODELOS.curso import Curso
 
 def mostrar_cursos(curso:Curso):
     try:

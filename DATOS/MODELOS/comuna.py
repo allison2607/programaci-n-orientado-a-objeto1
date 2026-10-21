@@ -8,7 +8,7 @@ class BaseModel(Model):
     class Meta:
         database = base_datos
 
-class Comunas(BaseModel):
+class Comuna(BaseModel):
     id_comuna = AutoField()
     comuna = CharField(max_length=50)
     habilitado = BooleanField(constraints=[SQL(default)], null=True)

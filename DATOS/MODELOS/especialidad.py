@@ -8,7 +8,7 @@ class BaseModel(Model):
     class Meta:
         database = base_datos
 
-class Especialidades(BaseModel):
+class Especialidad(BaseModel):
     id_especialidad = AutoField()
     especialidad = CharField(max_length=50)
     habilitado = BooleanField(constraints=[SQL(default)], null=True)
