@@ -16,7 +16,7 @@ def obtener_pais_nombre(nombre_pais):
 
 def guardar_pais(pais:Paises):
     try:
-        nuevo_pais = pais.save
+        nuevo_pais = pais.save()
         return nuevo_pais
     except Exception as error:
         print(f"Ha ocurrido un error!: {error}")

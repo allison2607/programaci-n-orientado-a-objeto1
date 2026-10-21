@@ -16,7 +16,7 @@ def obtener_contenido_modulo(modulo):
 
 def guardar_contenido(contenido:Contenidos):
     try:
-        contenido_nuevo = contenido.save
+        contenido_nuevo = contenido.save()
         return contenido_nuevo
     except Exception as error:
         print(f"Ha ocurrido un error!: {error}")

@@ -16,7 +16,7 @@ def obtener_direccion_calle_numero(calle_direccion, numero_direccion):
 
 def guardar_direccion(direccion:Direcciones):
     try:
-        nueva_direccion = direccion.save
+        nueva_direccion = direccion.save()
         return nueva_direccion
     except Exception as error:
         print(f"Ha ocurrido un error!: {error}")

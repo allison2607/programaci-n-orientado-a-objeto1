@@ -1,15 +1,15 @@
 from DATOS.MODELOS.personas import Personas
 
-def mostrar_personas(persona:Personas):
+def mostrar_personas():
     try:
-        personas = persona.select().where(persona.habilitado == 1)
+        personas = Personas.select().where(Personas.habilitado == 1)
         return personas
     except Exception as error:
         print(f"Ha ocurrido un error!: {error}")
 
-def obtener_persona_nombre(nombre_persona):
+def obtener_persona_rut(rut):
     try:
-        persona = Personas.get(Personas.nombre == nombre_persona)
+        persona = Personas.get(Personas.rut == rut)
         return persona
     except Exception as error:
         print(f"Ha ocurrido un error!: {error}")
