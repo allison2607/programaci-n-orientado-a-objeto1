@@ -1,5 +1,6 @@
 from DATOS.REPOSITORIOS.repo_usuarios import (mostrar_usuario, 
                                               obtener_usuario_nombre,
+                                              obtener_usuario_rut,
                                               guardar_usuario)
 from DATOS.REPOSITORIOS.repo_direcciones import (mostrar_direcciones,
                                                  obtener_direccion_calle_numero,
@@ -10,7 +11,7 @@ from DATOS.REPOSITORIOS.repo_comunas import (mostrar_comunas,
 from DATOS.REPOSITORIOS.repo_paises import (mostrar_paises,
                                             obtener_pais_nombre,
                                             guardar_pais)
-from DATOS.MODELOS.persona import Persona
+from DATOS.MODELOS.usuario import Usuario
 from DATOS.MODELOS.direccion import Direccion
 from DATOS.MODELOS.comuna import Comuna
 from DATOS.MODELOS.pais import Pais
@@ -98,7 +99,7 @@ def editar_usuarios(rut, nombre,
                    calle, comuna,
                    numero, pais):
     try:
-        usuario = obtener_usuario_nombre(rut)
+        usuario = obtener_usuario_rut(rut)
         if not usuario:
             print("usuarios no encontrada")
         usuario.nombre = nombre

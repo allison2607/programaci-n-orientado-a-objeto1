@@ -4,8 +4,8 @@ from DATOS.MODELOS.direccion import Direccion
 from DATOS.MODELOS.comuna import Comuna
 from DATOS.MODELOS.pais import Pais
 from NEGOCIO.negocio_usuario import (crear_usuario,
-                                     editar_usuario,
-                                     lista_usuario,
+                                     editar_usuarios,
+                                     lista_usuarios,
                                      eliminar_usuario)
 
 def menu_crear_usuarios():
@@ -33,14 +33,14 @@ def menu_crear_usuarios():
                  ).strip()
 
 
-    usuarios_crear = usuarios()
+    usuario_crear = Usuario()
     direccion_crear = Direccion()
     comunas_crear = Comuna()
     paises_crear = Pais()
 
 
-    resultado = crear_usuarios(
-        usuarios_crear,
+    resultado = crear_usuario(
+        usuario_crear,
         direccion_crear,
         comunas_crear,
         paises_crear,
@@ -61,10 +61,10 @@ def menu_crear_usuarios():
     else:
         print("usuarios guardada con exito!")
 
-def listado_usuarioss():
-    resultado = lista_usuarioss()
+def lista_usuarios():
+    resultado = lista_usuarios()
     if not resultado:
-        print("No hay usuarioss ingresadas!")
+        print("No hay usuarios ingresadas!")
         return
     tabla = PrettyTable()
     tabla.field_names = ['RUT', 'NOMBRE',
@@ -107,11 +107,11 @@ def menu_editar_usuarios():
      
     print(f"Actualizacion exitosa!\n{resultado}")
 
-def menu_eliminar_usuarios():
+def menu_eliminar_usuario():
     print("***" + "ELIMINAR usuarios" + "***")
     print()
     rut = input("Ingrese rut de la usuarios a eliminar: ")
-    resultado = eliminar_usuarios(rut)
+    resultado = eliminar_usuario(rut)
     print(f"Eliminacion exitosa!: {resultado}")
 
 if __name__ == "__main__":
