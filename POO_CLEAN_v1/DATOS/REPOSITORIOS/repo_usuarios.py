@@ -21,7 +21,7 @@ def guardar_usuario(usuario:Usuario):
     except Exception as error:
         print(f"Ha ocurrido un error!: {error}")
 
-def obtener_usuario_rut(rut_usuario):
+def obtener_usuario_rut(rut_usuario:Usuario):
     try:
         usuario = Usuario.get(Usuario.rut == rut_usuario)
         if usuario:
