@@ -34,27 +34,27 @@ def crear_usuario(usuario:Usuario,
         if nombre == "":
             return "La usuarios debe tener nombre!"
         else:
-            usuarios.nombre = nombre
+            usuario.nombre = nombre
         if rut == "":
             return "La usuarios debe tener RUT!"
         else:
-            usuarios.rut = rut
+            usuario.rut = rut
         if apellido == "":
             return "La usuarios debe tener apellido!"
         else:
-            usuarios.apellido = apellido
+            usuario.apellido = apellido
         if celular == "":
             return "La usuarios debe tener celular asociado!"
         else:
-            usuarios.celular = celular
+            usuario.celular = celular
         if correo == "":
             return "La usuarios debe tener correo asociado!"
         else:
-            usuarios.correo = correo
+            usuario.correo = correo
         if fecha_nacimiento == "":
             return "La usuarios debe tener fecha de nacimiento!" 
         else:
-            usuarios.fecha_nacimiento = fecha_nacimiento
+            usuario.fecha_nacimiento = fecha_nacimiento
         if calle == "":
             return "La usuarios debe tener una calle!"
         else:
@@ -77,16 +77,16 @@ def crear_usuario(usuario:Usuario,
         direccion.comuna = nueva_comuna
         direccion.pais = nuevo_pais
         nueva_direccion = guardar_direccion(direccion)
-        usuarios.direccion = nueva_direccion
-        nueva_usuarios_exito = guardar_usuarios(usuarios)
-        return nueva_usuarios_exito
+        usuario.direccion = nueva_direccion
+        nueva_usuario_exito = guardar_usuario(usuario)
+        return nueva_usuario_exito
 
     
     except Exception as error:
         print(f"Error al guardar la usuarios!: {error}")     
 
-def lista_usuarioss():
-    lista_usuarios = mostrar_usuarios()
+def lista_usuarios():
+    lista_usuarios = mostrar_usuario()
     if lista_usuarios == 1:
         return lista_usuarios
     else:
@@ -98,32 +98,32 @@ def editar_usuarios(rut, nombre,
                    calle, comuna,
                    numero, pais):
     try:
-        usuarios = obtener_usuarios_rut(rut)
-        if not usuarios:
+        usuario = obtener_usuario_nombre(rut)
+        if not usuario:
             print("usuarios no encontrada")
-        usuarios.nombre = nombre
-        usuarios.apellido = apellido
-        usuarios.celular = celular
-        usuarios.correo = correo
-        usuarios.fecha_nacimiento = fecha_nacimiento
-        usuarios.calle = calle
-        usuarios.comuna = comuna
-        usuarios.numero = numero
-        usuarios.pais = pais
+        usuario.nombre = nombre
+        usuario.apellido = apellido
+        usuario.celular = celular
+        usuario.correo = correo
+        usuario.fecha_nacimiento = fecha_nacimiento
+        usuario.calle = calle
+        usuario.comuna = comuna
+        usuario.numero = numero
+        usuario.pais = pais
 
-        guardar_usuarios(usuarios)
+        guardar_usuario(usuario)
         return "usuarios actualizada con exito!"
     except Exception as error:
         print(f"Ha ocurrido un error!: {error}")
 
 def eliminar_usuarios(rut):
     try:
-        usuarios = obtener_usuarios_rut(rut)
-        if not usuarios:
+        usuario = mostrar_usuario(rut)
+        if not usuario:
             print("Esa usuarios no existe!")
 
-        usuarios.habilitado = 0
-        guardar_usuarios(usuarios)
-        return "usuarios Eliminada con exito!"
+        usuario.habilitado = 0
+        guardar_usuario(usuario)
+        return "usuario Eliminada con exito!"
     except Exception as error:
         print(f"Ha ocurrido un error!: {error}")

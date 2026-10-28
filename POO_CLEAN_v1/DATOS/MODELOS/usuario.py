@@ -8,7 +8,7 @@ class BaseModel(Model):
     class Meta:
         database = base_datos
 
-class usuario(BaseModel):
+class Usuario(BaseModel):
     id_usuario = AutoField()
     rut = CharField(max_length=12,unique=True)
     nombre=CharField(max_length=25,null=False)
