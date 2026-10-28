@@ -6,7 +6,7 @@ from DATOS.MODELOS.pais import Pais
 from NEGOCIO.negocio_usuario import (crear_usuario,
                                      editar_usuarios,
                                      lista_usuarios,
-                                     eliminar_usuario)
+                                     eliminar_usuarios)
 
 def menu_crear_usuarios():
     print("*" + "INGRESA DATOS DE LA NUEVA usuarios".center(80) + "*")
@@ -107,11 +107,11 @@ def menu_editar_usuarios():
      
     print(f"Actualizacion exitosa!\n{resultado}")
 
-def menu_eliminar_usuario():
+def menu_eliminar_usuarios():
     print("***" + "ELIMINAR usuarios" + "***")
     print()
     rut = input("Ingrese rut de la usuarios a eliminar: ")
-    resultado = eliminar_usuario(rut)
+    resultado = eliminar_usuarios(rut)
     print(f"Eliminacion exitosa!: {resultado}")
 
 if __name__ == "__main__":

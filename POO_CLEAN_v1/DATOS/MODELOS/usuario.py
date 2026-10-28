@@ -14,7 +14,7 @@ class Usuario(BaseModel):
     nombre=CharField(max_length=25,null=False)
     apellido=CharField(max_length=25,null=False)
     correo=CharField(max_length=191)
-    pais=IntegerField(Index=True)
+    pais=IntegerField(index=True)
     fecha_nacimiento=DateField()
     genero=IntegerField(null=False)
     fecha_incorporacion=DateField(null=False)
