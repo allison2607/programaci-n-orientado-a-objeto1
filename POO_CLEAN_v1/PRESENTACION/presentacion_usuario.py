@@ -1,118 +1,62 @@
-from prettytable import PrettyTable
-from DATOS.MODELOS.usuario import Usuario
-from DATOS.MODELOS.direccion import Direccion
-from DATOS.MODELOS.comuna import Comuna
-from DATOS.MODELOS.pais import Pais
-from NEGOCIO.negocio_usuario import (crear_usuario,
-                                     editar_usuarios,
-                                     lista_usuarios,
-                                     eliminar_usuarios)
+import re
+import bcrypt
 
-def menu_crear_usuarios():
-    print("*" + "INGRESA DATOS DE LA NUEVA usuarios".center(80) + "*")
-    nombre = input("Ingresa el nombre de la usuarios\n"
-                   ).strip().capitalize()
-    rut = input("Ingresa el rut de la usuarios\n"
-                ).strip()
-    apellido = input("Ingresa el apellido de la usuarios\n"
-                     ).strip().capitalize()
-    celular = input("Ingresa el celular de la usuarios\n"
-                    ).strip()
-    correo = input("Ingresa el correo de la usuarios\n"
-                   ).strip()
-    fecha_nacimiento = input("""Ingresa la fecha de nacimiento de la usuarios
-    (Ejemplo: 2001-08-29)\n""").strip()
-    calle = input("Ingresa el nombre de la Calle de la usuarios\n"
-                  ).strip()
-    comuna = input("Ingresa la Comuna de la usuarios\n"
-                   ).strip()
+from datetime import datetime
+
+from NEGOCIO.negocio_usuario import crear_usuario
+from DATOS.REPOSITORIOS.repo_paises import obtener_pais_nombre
+from AUXILIAR.validaciones import validar_contrasena,validar_correo,validar_fecha_nacimiento,validar_genero,validar_rut
+
+def crear_usuario():
+    rut = nombre = apellido = correo = nombre_pais = fecha_nacimiento = genero = contrasenia = ''
+    titulo = '\nIngrese los datos del Usuario'
+    print(titulo)
+    print('=' * len(titulo))
+
+    while rut == '':
+        rut = input('RUT (11.111.111-1): ')
+        rut = validar_rut(rut)
+
+    while nombre == '':
+        nombre = input('Nombre: ')
+
+    while apellido == '':
+        apellido = input('Apellido: ')
+
+    while correo == '':
+        correo = input('Correo: ')
+        correo = validar_correo(correo)
+
+    while nombre_pais == '':
+        nombre_pais = input('País: ')
+        pais = obtener_pais_nombre(nombre_pais)
+        if not pais:
+            print('País NO encontrado, ingrese nuevamente...')
+            nombre_pais = ''
+
+    while fecha_nacimiento == '':
+        fecha_nacimiento = input('Fecha de Nacimiento [dd/mm/aaaa]: ')
+        fecha_nacimiento = validar_fecha_nacimiento(fecha_nacimiento)
     
-    numero = int(input("Ingresa el numero de la calle\n"
-                   ))
-    pais = input("Ingresa el pais de la usuarios\n"
-                 ).strip()
+    while genero == '':
+        print('Opciones Género: ')
+        print('[1] Masculino\n[2] Femenino\n[3] Otro')
+        genero = input('Seleccione género [1-3]: ')
+        genero = validar_genero(genero)
+    
+    while contrasenia == '':
+        print('Contraseña Segura: ')
+        print('- Debe contener al menos una mayúscula\n- Debe contener al menos una minúscula')
+        print('- Debe contener entre 8-15 caracteres\n- Debe contener al menos un dígito')
+        print('Debe contener al menos un símbolo: !@#$%&/')
+        contrasenia = input('Contraseña:')
+        resultado = validar_contrasena(contrasenia)
+        if len(resultado) > 0:
+            print('Contraseña Inválido, resuelva los siguientes errores:')
+            for error in resultado:
+                print("-", error)
+            contrasenia = ''
+        else:
+            encriptado = bcrypt.hashpw(contrasenia, bcrypt.gensalt())
 
-
-    usuario_crear = Usuario()
-    direccion_crear = Direccion()
-    comunas_crear = Comuna()
-    paises_crear = Pais()
-
-
-    resultado = crear_usuario(
-        usuario_crear,
-        direccion_crear,
-        comunas_crear,
-        paises_crear,
-        nombre,
-        rut,
-        apellido,
-        celular,
-        correo,
-        fecha_nacimiento,
-        calle,
-        comuna,
-        numero,
-        pais
-    )
-
-    if isinstance(resultado, str):
-        print(f"[Alerta del Sistema!]: {resultado}")
-    else:
-        print("usuarios guardada con exito!")
-
-def lista_usuarios():
-    resultado = lista_usuarios()
-    if not resultado:
-        print("No hay usuarios ingresadas!")
-        return
-    tabla = PrettyTable()
-    tabla.field_names = ['RUT', 'NOMBRE',
-                         'APELLIDO', 'CORREO']
-    for p in resultado:
-        tabla.add_row([p.rut, p.nombre,
-                       p.apellido, p.correo])
-    print(tabla)
-
-def menu_editar_usuarios():
-    print("***" + "EDITAR usuarios".center(80) + "***")
-    print()
-
-    rut = input("Ingrese el rut de usuarios a editar: ")
-
-    print("Ingrese los datos a actualizar\n(Si no hay que editar, dejar en blanco)")
-
-    nuevo_nombre = input("Nuevo nombre\n").strip().capitalize()
-    nuevo_apellido = input("Nuevo apellido\n").strip().capitalize()
-    nuevo_celular = input("Nuevo celular\n").strip()
-    nuevo_correo = input("Nuevo correo\n").strip()
-    nueva_fecha = input("Nueva fecha\n").strip()
-    nueva_calle = input("Nueva calle\n").strip()
-    nueva_comuna = input("Nueva comuna\n").strip()
-    nuevo_numero = input("Nuevo numero\n").strip()
-    nuevo_pais = input("Nuevo pais\n").strip()
-
-    resultado = editar_usuarios(
-        rut=rut,
-        nombre=nuevo_nombre,
-        apellido=nuevo_apellido,
-        celular=nuevo_celular,
-        correo=nuevo_correo,
-        fecha_nacimiento=nueva_fecha,
-        calle=nueva_calle,
-        comuna=nueva_comuna,
-        numero=nuevo_numero,
-        pais=nuevo_pais
-    )
-     
-    print(f"Actualizacion exitosa!\n{resultado}")
-
-def menu_eliminar_usuarios():
-    print("***" + "ELIMINAR usuarios" + "***")
-    print()
-    rut = input("Ingrese rut de la usuarios a eliminar: ")
-    resultado = eliminar_usuarios(rut)
-    print(f"Eliminacion exitosa!: {resultado}")
-
-if __name__ == "__main__":
-    menu_crear_usuarios()
+    crear_usuario(rut,nombre,apellido,correo,pais.id_pais,fecha_nacimiento,genero,encriptado)
