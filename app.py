@@ -1,31 +1,31 @@
-from PRESENTACION.presentacion_comuna import (menu_crear_comuna,
+from presentacion.presentacion_comuna import (menu_crear_comuna,
                                               listado_comunas,
                                               menu_eliminar_comuna,
                                               menu_activar_comuna,
                                               menu_editar_comuna)
-from PRESENTACION.presentacion_pais import (menu_crear_pais,
+from presentacion.presentacion_pais import (menu_crear_pais,
                                             listado_paises,
                                             menu_eliminar_pais,
                                             menu_activar_pais,
                                             menu_editar_pais)
-from PRESENTACION.presentacion_direccion import (menu_crear_direccion,
+from presentacion.presentacion_direccion import (menu_crear_direccion,
                                                  listado_direcciones,
                                                  menu_eliminar_direccion,
                                                  menu_editar_direccion,
                                                  menu_activar_direccion)
-from PRESENTACION.presentacion_persona import (menu_crear_persona, menu_editar_persona,
+from presentacion.presentacion_persona import (menu_crear_persona, menu_editar_persona,
                                                listado_personas, menu_eliminar_persona,
                                                menu_activar_persona)
-from PRESENTACION.presentacion_especialidad import (menu_activar_especialidad, menu_crear_especialidad,
+from presentacion.presentacion_especialidad import (menu_activar_especialidad, menu_crear_especialidad,
                                                     menu_editar_especialidad, menu_eliminar_especialidad,
                                                     listado_especialidades)
-from PRESENTACION.presentacion_instructor import (menu_asignar_instructor, menu_editar_login,
+from presentacion.presentacion_instructor import (menu_asignar_instructor, menu_editar_login,
                                                 listado_instructores, menu_eliminar_instructor, 
                                                 menu_activar_instructor)
-from PRESENTACION.presentacion_estudiante import (menu_asignar_estudiante, menu_editar_login_e,
+from presentacion.presentacion_estudiante import (menu_asignar_estudiante, menu_editar_login_e,
                                                   listado_estudiantes, menu_eliminar_estudiante,
                                                   menu_activar_estudiante)
-from PRESENTACION.presentacion_instructor_especialidad import (menu_asignar_especialidad_instructor,
+from presentacion.presentacion_instructor_especialidad import (menu_asignar_especialidad_instructor,
                                                                listado_especialidades_instructores,
                                                                menu_editar_asociacion,
                                                                menu_eliminar_asociacion,
