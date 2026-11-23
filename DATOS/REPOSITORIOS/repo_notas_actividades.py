@@ -1,4 +1,4 @@
-from DATOS.MODELOS.notas_actividad import NotasActividad
+from datos.modelos.notas_actividad import NotasActividad
 
 def mostrar_notas(notas:NotasActividad):
     try:

@@ -1,8 +1,8 @@
 from peewee import Model, AutoField, CharField, ForeignKeyField, IntegerField, BooleanField, SQL
-from DATOS.conexion import conectar
-from DATOS.MODELOS.pais import Pais
-from DATOS.MODELOS.comuna import Comuna
-from AUXILIAR.datos_app import default 
+from datos.conexion import conectar
+from datos.modelos.pais import Pais
+from datos.modelos.comuna import Comuna
+from auxiliar.datos_app import default 
 
 base_datos = conectar()
 

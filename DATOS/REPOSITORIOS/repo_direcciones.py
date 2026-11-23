@@ -1,23 +1,23 @@
-from DATOS.MODELOS.direccion import Direccion
+from datos.modelos.direccion import Direccion
 
-def mostrar_direcciones(direccion:Direccion):
+def mostrar_direcciones():
     try:
-        direcciones = direccion.select().where(direccion.habilitado == 1)
+        direcciones = Direccion.select().where(Direccion.habilitado == 1)
         return direcciones
     except Exception as error:
         print(f"Ha ocurrido un error!: {error}")
 
 def obtener_direccion_calle_numero(calle_direccion, numero_direccion):
     try:
-        direccion = Direccion.get(Direccion.calle == calle_direccion, Direccion.numero == numero_direccion)
+        direccion = Direccion.get_or_none(Direccion.calle == calle_direccion, Direccion.numero == numero_direccion)
         return direccion
     except Exception as error:
         print(f"Ha ocurrido un error!: {error}")
 
 def guardar_direccion(direccion:Direccion):
     try:
-        nueva_direccion = direccion.save()
-        return nueva_direccion
+        direccion.save()
+        return direccion
     except Exception as error:
         print(f"Ha ocurrido un error!: {error}")
 

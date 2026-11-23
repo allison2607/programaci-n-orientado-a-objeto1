@@ -1,4 +1,4 @@
-from DATOS.MODELOS.cursos_asistencia import CursosAsistencia
+from datos.modelos.cursos_asistencia import CursosAsistencia
 
 def mostrar_cursos_asistencia(cursoasis:CursosAsistencia):
     try:

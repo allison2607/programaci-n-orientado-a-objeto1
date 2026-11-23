@@ -1,4 +1,4 @@
-from DATOS.MODELOS.modulo import Modulo
+from datos.modelos.modulo import Modulo
 
 def mostrar_modulos(modulo:Modulo):
     try:

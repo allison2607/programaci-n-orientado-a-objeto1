@@ -1,4 +1,4 @@
-from DATOS.MODELOS.persona import Persona
+from datos.modelos.persona import Persona
 
 def mostrar_personas():
     try:

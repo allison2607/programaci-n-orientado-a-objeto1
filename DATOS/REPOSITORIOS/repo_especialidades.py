@@ -1,15 +1,15 @@
-from DATOS.MODELOS.especialidad import Especialidad
+from datos.modelos.especialidad import Especialidad
 
-def mostrar_especialidades(especialidad:Especialidad):
+def mostrar_especialidades():
     try:
-        especialidades = especialidad.select().where(especialidad.habilitado == 1)
+        especialidades = Especialidad.select().where(Especialidad.habilitado == 1)
         return especialidades
     except Exception as error:
         print(f"Ha ocurrido un error!: {error}")
 
 def obtener_especialidad(nombre_especialidad):
     try:
-        especialidad = Especialidad.get(Especialidad.especialidad == nombre_especialidad)
+        especialidad = Especialidad.get_or_none(Especialidad.especialidad == nombre_especialidad)
         return especialidad
     except Exception as error:
         print(f"Ha ocurrido un error!: {error}")

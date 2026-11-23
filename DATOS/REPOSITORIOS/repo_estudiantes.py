@@ -1,15 +1,16 @@
-from DATOS.MODELOS.estudiante import Estudiante
+from datos.modelos.estudiante import Estudiante
+from datos.modelos.persona import Persona
 
-def mostrar_estudiantes(estudiante:Estudiante):
+def mostrar_estudiantes():
     try:
-        estudiantes = estudiante.select().where(estudiante.habilitado == 1)
+        estudiantes = Estudiante.select(Estudiante, Persona).join(Persona).where(Estudiante.habilitado == 1)
         return estudiantes
     except Exception as error:
         print(f"Ha ocurrido un error!: {error}")
 
-def obtener_estudiante_nombre(nombre_estudiante):
+def obtener_estudiante_rut(rut):
     try:
-        estudiante = Estudiante.get(Estudiante.nombre == nombre_estudiante)
+        estudiante = Estudiante.select().join(Persona).where(Persona.rut == rut).get()
         return estudiante
     except Exception as error:
         print(f"Ha ocurrido un error!: {error}")

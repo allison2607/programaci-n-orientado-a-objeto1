@@ -1,15 +1,15 @@
-from DATOS.MODELOS.comuna import Comuna
+from datos.modelos.comuna import Comuna
 
-def mostrar_comunas(comuna:Comuna):
+def mostrar_comunas():
     try:
-        comunas = comuna.select().where(Comuna.habilitado == 1)
+        comunas = Comuna.select().where(Comuna.habilitado == 1)
         return comunas
     except Exception as error:
         print(f"Ha ocurrido un Error!: {error}")
 
 def obtener_comuna_nombre(nombre_comuna):
     try:
-        comuna = Comuna.get(Comuna.comuna == nombre_comuna)
+        comuna = Comuna.get_or_none(Comuna.comuna == nombre_comuna)
         return comuna
     except Exception as error:
         print(f"Ha Ocurritod un error!: {error}")

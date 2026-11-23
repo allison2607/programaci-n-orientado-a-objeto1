@@ -1,4 +1,4 @@
-from DATOS.MODELOS.actividad import Actividad
+from datos.modelos.actividad import Actividad
 
 def mostrar_actividades(actividad:Actividad):
     try:

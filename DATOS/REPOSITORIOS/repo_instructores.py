@@ -1,15 +1,16 @@
-from DATOS.MODELOS.instructor import Instructor
+from datos.modelos.instructor import Instructor
+from datos.modelos.persona import Persona
 
-def mostrar_instructores(instructor:Instructor):
+def mostrar_instructores():
     try:
-        instructores = instructor.select().where(instructor.habilitado == 1)
+        instructores =Instructor.select(Instructor, Persona).join(Persona).where(Instructor.habilitado == 1)
         return instructores
     except Exception as error:
         print(f"Ha ocurrido un error!: {error}")
 
-def obtener_instructor_nombre(nombre_instructor):
+def obtener_instructor_rut(rut):
     try:
-        instructor = Instructor.get(Instructor.nombre == nombre_instructor)
+        instructor = Instructor.select().join(Persona).where(Persona.rut == rut).get()
         return instructor
     except Exception as error:
         print(f"Ha ocurrido un error!: {error}")

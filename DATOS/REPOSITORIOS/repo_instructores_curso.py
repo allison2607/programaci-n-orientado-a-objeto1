@@ -1,4 +1,4 @@
-from DATOS.MODELOS.instructor_curso import InstructorCurso
+from datos.modelos.instructor_curso import InstructorCurso
 
 def mostrar_curso_instructores(cursosinstructor:InstructorCurso):
     try:

@@ -1,7 +1,7 @@
 from peewee import Model, AutoField, ForeignKeyField, FloatField
-from DATOS.conexion import conectar
-from DATOS.MODELOS.curso import Curso
-from DATOS.MODELOS.estudiante import Estudiante
+from datos.conexion import conectar
+from datos.modelos.curso import Curso
+from datos.modelos.estudiante import Estudiante
 
 base_datos = conectar()
 

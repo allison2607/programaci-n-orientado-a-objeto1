@@ -1,6 +1,6 @@
 from peewee import Model, AutoField, CharField, FloatField, IntegerField, BooleanField, SQL
-from DATOS.conexion import conectar
-from AUXILIAR.datos_app import default 
+from datos.conexion import conectar
+from auxiliar.datos_app import default 
 
 base_datos = conectar()
 

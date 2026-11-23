@@ -1,4 +1,4 @@
-from DATOS.MODELOS.inscripcion import Inscripcion
+from datos.modelos.inscripcion import Inscripcion
 
 def mostrar_inscripciones(inscripcion:Inscripcion):
     try:

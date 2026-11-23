@@ -1,4 +1,4 @@
-from DATOS.MODELOS.contenidos import Contenido
+from datos.modelos.contenidos import Contenido
 
 def mostrar_contenidos(contenido:Contenido):
     try:
