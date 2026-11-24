@@ -1,6 +1,6 @@
 from datos.modelos.cursos_promedio import CursosPromedio
 
-def mostrar_cursos_promedios(promedio:CursosPromedio):
+def mostrar_cursos_promedios():
     try:
         promedios_curso = promedio.select()
         return promedios_curso

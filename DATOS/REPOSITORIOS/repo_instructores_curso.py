@@ -1,6 +1,6 @@
 from datos.modelos.instructor_curso import InstructorCurso
 
-def mostrar_curso_instructores(cursosinstructor:InstructorCurso):
+def mostrar_curso_instructores():
     try:
         cursos_instructor = cursosinstructor.select().where(cursosinstructor.habilitado == 1)
         return cursos_instructor

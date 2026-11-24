@@ -30,9 +30,34 @@ from presentacion.presentacion_instructor_especialidad import (menu_asignar_espe
                                                                menu_editar_asociacion,
                                                                menu_eliminar_asociacion,
                                                                menu_activar_asociacion)
+from presentacion.presentacion_login import (menu_inicio_sesion)
 
-
-
+def login():
+    try:
+        flag = True
+        while flag:
+            print("[***" + "BIENVENIDO!".center(80) + "***]")
+            print()
+            print("[" + "[1] Iniciar Sesion".center(80) + "]")
+            print("[" + "[2] Salir".center(80) + "]")
+            decision = int(input())
+            if decision == 1:
+                for i in range(3):
+                    print(f"Has hecho {i+1} de 3 Intentos")
+                    login_valido = menu_inicio_sesion()
+                    if login_valido:
+                        menu()
+                        break
+                    if i == 2:
+                        print("Superaste el valor maximo de intentos. Cerrando... ")
+                        flag = False 
+            elif decision == 2:
+                print("Saliendo...")
+                flag = False  
+            else: 
+                print("Opcion Invalida")
+    except ValueError:
+        print("No funciona asi!")
 def menu():
     flag = True
     while flag:
@@ -71,7 +96,7 @@ def menu():
             
             elif decision == 0:
                 print("Adios!")
-                flag = False 
+                flag = False
             else: 
                 print("Esa no es una opcion Valida!")   
         except ValueError:
@@ -270,7 +295,7 @@ def menu_estudiantes():
 
 
 if __name__ == "__main__":
-    menu()
+    login()
 
 
 

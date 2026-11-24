@@ -15,6 +15,16 @@ def obtener_instructor_rut(rut):
     except Exception as error:
         print(f"Ha ocurrido un error!: {error}")
 
+def obtener_instructor_correo(correo):
+    try:
+        instructor = Instructor.select(Instructor, Persona).join(Persona).where((
+            Persona.correo == correo) &
+            (Instructor.habilitado == 1) &
+            (Persona.habilitado == 1)).first()
+        return instructor
+    except Exception as error:
+        print(f"Ha ocurrido un error!: {error}")
+
 def guardar_instructor(instructor:Instructor):
     try:
         instructor_nuevo = instructor.save()

@@ -1,6 +1,6 @@
 from datos.modelos.inscripcion import Inscripcion
 
-def mostrar_inscripciones(inscripcion:Inscripcion):
+def mostrar_inscripciones():
     try:
         inscripciones = inscripcion.select().where(inscripcion.habilitado == 1)
         return inscripciones

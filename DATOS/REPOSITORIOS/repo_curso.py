@@ -1,6 +1,6 @@
 from datos.modelos.curso import Curso
 
-def mostrar_cursos(curso:Curso):
+def mostrar_cursos():
     try:
         cursos = curso.select().where(curso.habilitado == 1)
         return cursos

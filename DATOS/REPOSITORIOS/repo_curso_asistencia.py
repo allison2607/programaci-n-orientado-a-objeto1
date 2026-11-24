@@ -1,6 +1,6 @@
 from datos.modelos.cursos_asistencia import CursosAsistencia
 
-def mostrar_cursos_asistencia(cursoasis:CursosAsistencia):
+def mostrar_cursos_asistencia():
     try:
         asistencias_cursos = cursoasis.select()
         return asistencias_cursos

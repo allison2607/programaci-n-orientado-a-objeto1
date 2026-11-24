@@ -1,6 +1,6 @@
 from datos.modelos.actividad import Actividad
 
-def mostrar_actividades(actividad:Actividad):
+def mostrar_actividades():
     try:
         actividades = actividad.select().where(actividad.habilitado == 1)
         return actividades

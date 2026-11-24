@@ -1,6 +1,6 @@
 from datos.modelos.contenidos import Contenido
 
-def mostrar_contenidos(contenido:Contenido):
+def mostrar_contenidos():
     try:
         contenidos = contenido.select().where(contenido.habilitado == 1)
         return contenidos
