@@ -32,6 +32,8 @@ from presentacion.presentacion_instructor_especialidad import (menu_asignar_espe
                                                                menu_activar_asociacion)
 from presentacion.presentacion_login import (menu_inicio_sesion)
 
+# Cuenta DEMO: 
+# MAIL: test@testgmail.com  - PSW: Veronica2001!
 def login():
     try:
         flag = True
